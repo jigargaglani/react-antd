@@ -256,8 +256,8 @@ const Demo = () => {
 
         <Form.Item
           wrapperCol={{
-            span: 12,
-            offset: 6
+            span: 6
+            //offset: 6
           }}
         >
           <Space>
@@ -266,6 +266,16 @@ const Demo = () => {
             </Button>
             <Button type="primary" htmlType="submit">
               Get Data
+            </Button>
+          </Space>
+        </Form.Item>
+        <Form.Item>
+          <Space>
+            <Button type="primary" htmlType="submit">
+              Create New Sheet
+            </Button>
+            <Button type="primary" htmlType="submit">
+              Select Cells OR Add to preview
             </Button>
             <Button type="primary" htmlType="submit">
               Upload Data
