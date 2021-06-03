@@ -16,7 +16,8 @@ import {
   Checkbox,
   Row,
   Col,
-  Space
+  Space,
+  Input
 } from 'antd';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 const { Option } = Select;
@@ -45,34 +46,45 @@ const Demo = () => {
   };
 
   const { RangePicker } = DatePicker;
+  const { TextArea } = Input;
 
   return (
     <div>
       <Form>
+        <Form.Item label="Plant option">
+          <Radio.Group>
+            <Radio value="a">Single Plant</Radio>
+            <Radio value="b">Multiple Plant</Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="Template Type">
+          <Radio.Group>
+            <Radio value="a">Upload</Radio>
+            <Radio value="b">Download</Radio>
+          </Radio.Group>
+        </Form.Item>
         <Form.Item
           name="select"
           label="Plant"
           hasFeedback
-          rules={[
-            {
-              //required: true,
-              message: 'Please select your country!'
-            }
-          ]}
+          //rules={[
+          //{
+          //required: true,
+          //message: 'Please select your country!'
+          //}
+          //]}
         >
-          <Select placeholder="Please select a plant">
-            <Option value="china">China</Option>
-            <Option value="usa">U.S.A</Option>
+          <Select mode="multiple" placeholder="Please select a plant">
+            <Option value="china">Baytown budget</Option>
+            <Option value="usa">Brazos budget</Option>
           </Select>
         </Form.Item>
-        <Form.Item label="Use existing template">
-          <Select placeholder="Please select existing template">
-            <Option value="china">China</Option>
-            <Option value="usa">U.S.A</Option>
+        <Form.Item label="Saved Templates">
+          <Select placeholder="Please select template">
+            <Option value="china">Create New</Option>
+            <Option value="usa">Template #1</Option>
+            <Option value="usa">Template #2</Option>
           </Select>
-        </Form.Item>
-        <Form.Item>
-          <Radio value="a">Create New Template</Radio>
         </Form.Item>
       </Form>
       <Form
@@ -86,15 +98,16 @@ const Demo = () => {
         }}
       >
         <Form.Item
+          style={{ display: 'none' }}
           name="select-multiple"
           label="Attribute Groups"
-          rules={[
-            {
-              //required: true,
-              message: 'Please select your favourite colors!',
-              type: 'array'
-            }
-          ]}
+          // rules={[
+          //   {
+          //     //required: true,
+          //     message: 'Please select your favourite colors!',
+          //     type: 'array'
+          //   }
+          // ]}
         >
           <Select mode="multiple" placeholder="Please select attribute groups">
             <Option value="red">AVAILABLE:#-1-TURB</Option>
@@ -103,7 +116,15 @@ const Demo = () => {
           </Select>
         </Form.Item>
 
-        <Form.Item label="Select Year">
+        <Form.Item label="Select Row attrubites">
+          <Select mode="" placeholder="Select Row attributes">
+            <Option value="red">N-1 Turbines - Number of Gas Turbines</Option>
+            <Option value="green">Total Combustion Turbines</Option>
+            <Option value="blue">N-3 Turbines - Number of Gas Turbines</Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item label="Select Year" style={{ display: 'none' }}>
           <RangePicker picker="year" />
         </Form.Item>
 
@@ -259,6 +280,7 @@ const Demo = () => {
             span: 6
             //offset: 6
           }}
+          style={{ display: 'none' }}
         >
           <Space>
             <Button type="primary" htmlType="submit">
@@ -269,16 +291,58 @@ const Demo = () => {
             </Button>
           </Space>
         </Form.Item>
+        <Form.Item style={{ display: '' }}>
+          <Space>
+            <Button type="primary" htmlType="submit">
+              Create Upload Template
+            </Button>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ display: 'none' }}
+            >
+              Add cells to preview
+            </Button>
+            <Button type="primary" htmlType="submit">
+              Save Template
+            </Button>
+          </Space>
+        </Form.Item>
+      </Form>
+
+      <Form layout="horizontal" style={{ display: 'none' }}>
+        {/* <Form.Item label="Sheet Name">
+          <Select placeholder="Select a Sheet Name">
+            <Option value="china">China</Option>
+            <Option value="usa">U.S.A</Option>
+          </Select>
+        </Form.Item> */}
+        <Form.Item label="Plant Name">
+          <Select placeholder="Select a Plant">
+            <Option value="china">Baytown budget</Option>
+            <Option value="usa">Brazos budget</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="Select Row attrubites">
+          <Select mode="multiple" placeholder="Select Row attributes">
+            <Option value="red">N-1 Turbines - Number of Gas Turbines</Option>
+            <Option value="green">Total Combustion Turbines</Option>
+            <Option value="blue">N-3 Turbines - Number of Gas Turbines</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="Select Year">
+          <RangePicker picker="year" />
+        </Form.Item>
+        <Form.Item label="Comments">
+          <TextArea showCount maxLength={100} />
+        </Form.Item>
         <Form.Item>
           <Space>
             <Button type="primary" htmlType="submit">
-              Create New Sheet
+              Upload
             </Button>
-            <Button type="primary" htmlType="submit">
-              Select Cells OR Add to preview
-            </Button>
-            <Button type="primary" htmlType="submit">
-              Upload Data
+            <Button type="secondary" htmlType="submit">
+              Cancel
             </Button>
           </Space>
         </Form.Item>
