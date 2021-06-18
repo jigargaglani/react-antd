@@ -310,7 +310,7 @@ const Demo = () => {
         </Form.Item>
       </Form>
 
-      <Form layout="horizontal" style={{ display: 'none' }}>
+      <Form layout="horizontal" style={{ display: '' }}>
         {/* <Form.Item label="Sheet Name">
           <Select placeholder="Select a Sheet Name">
             <Option value="china">China</Option>
