@@ -280,7 +280,7 @@ const Demo = () => {
             span: 6
             //offset: 6
           }}
-          style={{ display: 'none' }}
+          style={{ display: '' }}
         >
           <Space>
             <Button type="primary" htmlType="submit">
@@ -299,7 +299,7 @@ const Demo = () => {
             <Button
               type="primary"
               htmlType="submit"
-              style={{ display: 'none' }}
+              style={{ display: '' }}
             >
               Add cells to preview
             </Button>
