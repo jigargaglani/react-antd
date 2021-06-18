@@ -98,7 +98,7 @@ const Demo = () => {
         }}
       >
         <Form.Item
-          style={{ display: 'none' }}
+          style={{ display: '' }}
           name="select-multiple"
           label="Attribute Groups"
           // rules={[
@@ -296,11 +296,7 @@ const Demo = () => {
             <Button type="primary" htmlType="submit">
               Create Upload Template
             </Button>
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{ display: '' }}
-            >
+            <Button type="primary" htmlType="submit" style={{ display: '' }}>
               Add cells to preview
             </Button>
             <Button type="primary" htmlType="submit">
